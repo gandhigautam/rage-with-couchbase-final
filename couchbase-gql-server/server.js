@@ -1,3 +1,6 @@
+require('dotenv').config()
+const { cbUser, cbPass } = process.env
+
 const express = require('express')
 const cors = require('cors')
 const graphqlHTTP = require('express-graphql')
@@ -8,7 +11,7 @@ const couchbase = require('couchbase')
 const app = express()
 app.use(cors())
 
-const cluster = new couchbase.Cluster('couchbase://localhost', { username: 'ebishard', password: 'password' })
+const cluster = new couchbase.Cluster('couchbase://localhost', { username: cbUser, password: cbPass })
 const bucket = cluster.bucket('travel-sample')
 var collection = bucket.defaultCollection();
 
