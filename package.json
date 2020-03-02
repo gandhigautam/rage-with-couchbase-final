@@ -1,0 +1,17 @@
+{
+  "name": "rage-with-couchbase",
+  "version": "0.1.0",
+  "description": "Concurrently run GraphQL Express Server and React application from the rage-with-couchbase project",
+  "scripts": {
+    "client": "cd react-apollo-client && npm start",
+    "server": "cd couchbase-gql-server && node server",
+    "start": "concurrently --kill-others \"npm run server\" \"npm run client\"",
+    "postinstall": "(cd couchbase-gql-server && npm install); (cd react-apollo-client && npm install);"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
