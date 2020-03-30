@@ -33,7 +33,7 @@ const schema = buildSchema(`
 const root = {
   airlinesUK: () => {
     let statement =
-      "SELECT META(airline).id, airline.* " +
+      "SELECT airline.* " +
       "FROM `travel-sample` AS airline " +
       "WHERE airline.type = 'airline' " +
       "AND airline.country = 'United Kingdom' "
