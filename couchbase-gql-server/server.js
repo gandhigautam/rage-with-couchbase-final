@@ -32,11 +32,12 @@ const schema = buildSchema(`
 
 const root = {
   airlinesUK: () => {
-    let statement =
-      "SELECT airline.* " +
-      "FROM `travel-sample` AS airline " +
-      "WHERE airline.type = 'airline' " +
-      "AND airline.country = 'United Kingdom' "
+    let statement = `
+      SELECT airline.* 
+      FROM \`travel-sample\` AS airline 
+      WHERE airline.type = 'airline' 
+      AND airline.country = 'United Kingdom' 
+    `
     return new Promise((resolve, reject) => {
       cluster.query(
         statement, (error, result) => error 
